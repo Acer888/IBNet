@@ -42,30 +42,6 @@ class GELU(nn.Module):
         return 0.5 * x * (1 + torch.tanh(np.sqrt(2 / np.pi) * (x + 0.044715 * torch.pow(x, 3))))
 
 
-""" LeLeLU: Leaky Learnable ReLU """
-class LeLeLU(nn.Module):
-    __constants__ = ['inplace', 'init_parms']
-    inplace: bool
-    init_parms: float
-
-    def __init__(self, init_parms: float = 1e-1, inplace: bool = False) -> None:
-        super(LeLeLU, self).__init__()
-        self.learnable_shared_params = nn.Parameter(torch.Tensor([init_parms]))
-        self.inplace = inplace  # can optionally do the operation in-place. Default: False
-
-    def forward(self, x):
-        return self.learnable_shared_params * torch.where(x >= 0, x, 0.01 * x)
-
-
-""" Swish """
-class Swish(nn.Module):
-    def __init__(self):
-        super(Swish, self).__init__()
-
-    def forward(self, x):
-        return x * torch.sigmoid(x)
-
-
 class PBMish_Avazu(nn.Module):
     def __init__(self, input_dim, eps=1e-9):
         super(PBMish_Avazu, self).__init__()
