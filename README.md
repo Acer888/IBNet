@@ -5,21 +5,33 @@
 
 
 ## Requirements
-python==3.8  
+python==3.8.18  
 torch==1.12.0+cu116  
 fuxictr  
-PyYAML  
-pandas  
-scikit-learn  
-numpy  
-h5py  
-tqdm  
+PyYAML==6.0.1  
+pandas==2.0.3  
+scikit-learn==1.3.1  
+numpy==1.24.4  
+h5py==3.10.0  
+tqdm==4.66.1  
+
+
+
 ## Experiment results
+
 ![image](https://github.com/Acer888/IBNet/assets/45092309/0b654760-8ad5-48ed-974c-2a9fc9a9de20)
 
 
 ## Datasets
 Get the datasets from https://github.com/openbenchmark/BARS/tree/main/datasets
+
+
+
+## Hyperparameter settings and logs
+
+Get the result from https://github.com/Acer888/IBNet/master/IBNet_torch/checkpoints
+
+
 
 
 ## Acknowledgement
