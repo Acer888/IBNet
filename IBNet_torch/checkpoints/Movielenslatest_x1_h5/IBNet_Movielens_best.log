@@ -183,7 +183,7 @@
 2023-11-09 21:08:56,909 P3352278 INFO Reduce learning rate on plateau: 0.000001
 2023-11-09 21:08:56,909 P3352278 INFO ********* Epoch==19 early stop *********
 2023-11-09 21:08:57,020 P3352278 INFO Training finished.
-2023-11-09 21:08:57,020 P3352278 INFO Load best model: /mnt/public/lhw/code/FuxiCTR/model_zoo/DCN/DCN_torch/checkpoints/Movielenslatest_x1_h5/AIB_DCNv4h_20_Movielens_1196_2e15000c.model
+2023-11-09 21:08:57,020 P3352278 INFO Load best model: /mnt/public/code/FuxiCTR/model_zoo/DCN/DCN_torch/checkpoints/Movielenslatest_x1_h5/AIB_DCNv4h_20_Movielens_1196_2e15000c.model
 2023-11-09 21:08:57,033 P3352278 INFO ****** Validation evaluation ******
 2023-11-09 21:08:58,736 P3352278 INFO ===
 2023-11-09 21:08:58,736 P3352278 INFO [Metrics] logloss: 0.204148 - AUC: 0.971356

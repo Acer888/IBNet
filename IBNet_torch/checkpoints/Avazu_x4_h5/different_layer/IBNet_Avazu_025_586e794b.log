@@ -105,7 +105,7 @@
 2023-11-29 22:32:30,393 P51530 INFO Reduce learning rate on plateau: 0.000010
 2023-11-29 22:32:30,393 P51530 INFO ********* Epoch==3 early stop *********
 2023-11-29 22:32:30,452 P51530 INFO Training finished.
-2023-11-29 22:32:30,452 P51530 INFO Load best model: /mnt/public/lhw/code/FuxiCTR/model_zoo/DCN/DCN_torch/checkpoints/Avazu_x4_h5/IBNet_Avazu_025_586e794b.model
+2023-11-29 22:32:30,452 P51530 INFO Load best model: /mnt/public/code/FuxiCTR/model_zoo/DCN/DCN_torch/checkpoints/Avazu_x4_h5/IBNet_Avazu_025_586e794b.model
 2023-11-29 22:32:30,663 P51530 INFO ****** Validation evaluation ******
 2023-11-29 22:32:42,006 P51530 INFO ===
 2023-11-29 22:32:42,007 P51530 INFO [Metrics] logloss: 0.371411 - AUC: 0.793931

@@ -116,14 +116,6 @@ def load_h5(data_path, verbose=0):
     return data_dict
 
 def delete_model_files(model_dir, model_name):
-    # # Create the path to search for model files
-    # pattern = os.path.join(model_dir, model_name + '.model')
-    # # Find all files matching the pattern
-    # model_files = glob.glob(pattern)
-    # # Delete each model file
-    # for model_file in model_files:
-    #     os.remove(model_file)
-
-    # 仅删除指定名称的 model 文件，防止多卡联动误删除
+    # Only delete model files with the specified name to prevent accidental deletion during multi-GPU operation.
     model_file = os.path.join(model_dir, model_name + '.model')
     os.remove(model_file)

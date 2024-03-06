@@ -15,7 +15,6 @@
 # =========================================================================
 
 import sys
-# sys.path.append("/home/lhw/code/FuxiCTR/")
 sys.path.append("/root/autodl-tmp/FuxiCTR/")
 import logging
 import fuxictr_version
@@ -41,7 +40,7 @@ if __name__ == '__main__':
     '''
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', type=str, default='./config/', help='The config directory.')
-    parser.add_argument('--expid', type=str, default='IBDCN_mask_Avazu', help='The experiment id to run.')
+    parser.add_argument('--expid', type=str, default='IBNet_Avazu', help='The experiment id to run.')
     parser.add_argument('--gpu', type=int, default=0, help='The gpu index, -1 for cpu')
     args = vars(parser.parse_args())
 
@@ -91,22 +90,6 @@ if __name__ == '__main__':
                          "N.A.", print_to_list(valid_result), print_to_list(test_result)
                          , params['dnn_activations']))
 
-    # with open(result_filename, 'a+') as fw:
-    #     fw.write(' {},[command] python {},[exp_id] {},[dataset_id] {},[train] {},[val] {},[test] {},'
-    #              ' [activation] {}, [cl_temp] {}\n' \
-    #              .format(datetime.now().strftime('%Y%m%d-%H%M%S'),
-    #                      ' '.join(sys.argv), experiment_id, params['dataset_id'],
-    #                      "N.A.", print_to_list(valid_result), print_to_list(test_result)
-    #                      , params['dnn_activations'], params['cl_temp']))
-
-    # with open(result_filename, 'a+') as fw:
-    #     fw.write(' {},[command] python {},[exp_id] {},[dataset_id] {},[train] {},[val] {},[test] {},'
-    #              ' [activation] {}， [random_dropout] {}\n' \
-    #              .format(datetime.now().strftime('%Y%m%d-%H%M%S'),
-    #                      ' '.join(sys.argv), experiment_id, params['dataset_id'],
-    #                      "N.A.", print_to_list(valid_result), print_to_list(test_result)
-    #                      , params['dnn_activations'], params['random_dropout']))
-
-    # 删除多余的模型缓存文件
+    # Delete redundant model cache files.
     model_dir = os.path.join(params["model_root"], feature_map.dataset_id)
     delete_model_files(model_dir, params["model_id"])

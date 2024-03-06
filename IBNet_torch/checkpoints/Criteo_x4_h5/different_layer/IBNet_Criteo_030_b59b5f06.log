@@ -181,7 +181,7 @@
 2023-12-01 07:38:04,057 P462839 INFO Reduce learning rate on plateau: 0.000001
 2023-12-01 07:38:04,057 P462839 INFO ********* Epoch==13 early stop *********
 2023-12-01 07:38:04,125 P462839 INFO Training finished.
-2023-12-01 07:38:04,126 P462839 INFO Load best model: /mnt/public/lhw/code/FuxiCTR/model_zoo/DCN/DCN_torch/checkpoints/Criteo_x4_h5/IBNet_Criteo_030_b59b5f06.model
+2023-12-01 07:38:04,126 P462839 INFO Load best model: /mnt/public/code/FuxiCTR/model_zoo/DCN/DCN_torch/checkpoints/Criteo_x4_h5/IBNet_Criteo_030_b59b5f06.model
 2023-12-01 07:38:04,434 P462839 INFO ****** Validation evaluation ******
 2023-12-01 07:38:20,917 P462839 INFO ===
 2023-12-01 07:38:20,917 P462839 INFO [Metrics] logloss: 0.438309 - AUC: 0.813701

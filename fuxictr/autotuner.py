@@ -15,7 +15,6 @@
 # =========================================================================
 
 import sys
-# sys.path.append("/home/lhw/code/FuxiCTR/")
 sys.path.append("/root/autodl-tmp/FuxiCTR/")
 import itertools
 import subprocess
@@ -134,8 +133,6 @@ def grid_search(config_dir, gpu_list, expid_tag=None, script='run_expid.py'):
             idle_idx = idle_queue.pop(0)
             gpu_id = gpu_list[idle_idx]
             expid = experiment_id_list.pop(0)
-            # cmd = "/home/lhw/miniconda3/envs/fuxictr/bin/python -u {} --config {} --expid {} --gpu {}"\
-            #          .format(script, config_dir, expid, gpu_id)
             # cmd = "D:/miniconda3/envs/fuxictr/python -u {} --config {} --expid {} --gpu {}".format(script, config_dir,
             #                                                                                        expid, gpu_id)
             # cmd = "/root/miniconda3/bin/python -u {} --config {} --expid {} --gpu {}".format(script, config_dir,

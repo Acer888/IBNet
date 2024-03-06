@@ -105,7 +105,7 @@
 2023-11-29 23:24:16,883 P85990 INFO Reduce learning rate on plateau: 0.000010
 2023-11-29 23:24:16,883 P85990 INFO ********* Epoch==3 early stop *********
 2023-11-29 23:24:16,961 P85990 INFO Training finished.
-2023-11-29 23:24:16,961 P85990 INFO Load best model: /mnt/public/lhw/code/FuxiCTR/model_zoo/DCN/DCN_torch/checkpoints/Avazu_x4_h5/IBNet_Avazu_035_d1f106d1.model
+2023-11-29 23:24:16,961 P85990 INFO Load best model: /mnt/public/code/FuxiCTR/model_zoo/DCN/DCN_torch/checkpoints/Avazu_x4_h5/IBNet_Avazu_035_d1f106d1.model
 2023-11-29 23:24:17,163 P85990 INFO ****** Validation evaluation ******
 2023-11-29 23:24:27,975 P85990 INFO ===
 2023-11-29 23:24:27,975 P85990 INFO [Metrics] logloss: 0.371053 - AUC: 0.794569

@@ -132,20 +132,16 @@ class CrossNet(nn.Module):
         X_i = X_0  # b x dim
         cross_emb_list = []
         cross_emb_mask_concat_list = []
-        # cross_emb_mask_list = []
-
-        # input_mask = self.mask(X_0)
 
         for i in range(self.num_layers):
             X_i = X_i + self.cross_net[i](X_0, X_i)  # 1. get cross_emb
-            X_i_mask = self.mask(X_i)  # 2.reparametriztion & aggregate
+            X_i_mask = self.mask(X_i)  # 2.reparametriztion and aggregate
 
             X_i_compress = torch.cat([X_i, X_i_mask], dim=-1)
             X_i_compress = self.fc_compress(X_i_compress)
 
             cross_emb_list.append(X_i)
             cross_emb_mask_concat_list.append(X_i_compress)
-            # cross_emb_mask_list.append(self.mask(X_i))
 
         return X_i, cross_emb_list, cross_emb_mask_concat_list
 
