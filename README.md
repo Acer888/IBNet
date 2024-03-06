@@ -29,7 +29,7 @@ Get the datasets from https://github.com/openbenchmark/BARS/tree/main/datasets
 
 ## Hyperparameter settings and logs
 
-Get the result from https://github.com/Acer888/IBNet/master/IBNet_torch/checkpoints
+Get the result from https://github.com/Acer888/IBNet/tree/master/IBNet_torch/checkpoints
 
 
 
