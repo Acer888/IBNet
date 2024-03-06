@@ -23,7 +23,7 @@ tqdm==4.66.1
 
 
 ## Datasets
-Get the datasets from https://github.com/openbenchmark/BARS/tree/main/datasets
+Get the datasets from [https://github.com/openbenchmark/BARS/tree/main/datasets](https://github.com/reczoo/Datasets?tab=readme-ov-file#ctr-prediction)
 
 
 
