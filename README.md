@@ -31,6 +31,8 @@ Get the datasets from [https://github.com/openbenchmark/BARS/tree/main/datasets]
 
 Get the result from https://github.com/Acer888/IBNet/tree/master/IBNet_torch/checkpoints
 
+Get Mice activation function from https://github.com/Acer888/IBNet/blob/master/fuxictr/pytorch/layers/activations.py
+
 
 
 
