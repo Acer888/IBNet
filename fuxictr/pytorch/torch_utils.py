@@ -96,141 +96,27 @@ def get_regularizer(reg):
 
 def get_activation(activation, hidden_units=None, negative_slope=0.01, positive_slope=1.05):
     if isinstance(activation, str):
-        if activation.lower() in ["prelu", "dice", "lift", "simlift", "vodice", "xtan", "pxtan", "simpxtan", "pmish", "pbmish"]:
+        if activation.lower() in ["prelu", "dice", "pbmish_avazu", "pbmish_criteo"]:
             assert type(hidden_units) == int
-        if activation.lower() == "sigmoid":
-            return nn.Sigmoid()
-        elif activation.lower() == "softmax":
-            return nn.Softmax(dim=-1)
-        elif activation.lower() == "elu":
-            return nn.ELU(alpha=1)
-        elif activation.lower() == "hardshrink":
-            return nn.Hardshrink(lambd=0.5)
-        elif activation.lower() == "hardsigmoid":
-            return nn.Hardsigmoid()
-        elif activation.lower() == "hardtanh":
-            return nn.Hardtanh(-2, 20) # default:(-2, 2)
-        elif activation.lower() == "swish":
-            from fuxictr.pytorch.layers.activations import Swish
-            return Swish()
-        elif activation.lower() == "hardswish":
-            return nn.Hardswish()
-        elif activation.lower() == "leaky_relu":
-            return nn.LeakyReLU(negative_slope=0.01)
-        # elif activation.lower() == "lrelu":
-        #     return nn.LeakyReLU(negative_slope=0.5)
-        elif activation.lower() == "logsigmoid":
-            return nn.LogSigmoid()
-        elif activation.lower() == "prelu":
-            return nn.PReLU(hidden_units, init=0.01)
-        elif activation.lower() == "relu":
+        if activation.lower() == "relu":
             return nn.ReLU()
-        elif activation.lower() == "relu6":
-            return nn.ReLU6()
-        elif activation.lower() == "rrelu":
-            return nn.RReLU(0.1, 0.3)
-        elif activation.lower() == "selu":
-            return nn.SELU()
-        elif activation.lower() == "celu":
-            return nn.CELU()
-        elif activation.lower() == "gelu":
-            return nn.GELU()
         elif activation.lower() == "sigmoid":
             return nn.Sigmoid()
-        elif activation.lower() == "silu":
-            return nn.SiLU()
-        elif activation.lower() == "mish":
-            return nn.Mish()
-        elif activation.lower() == "softplus":
-            return nn.Softplus(beta=1, threshold=20)
-        elif activation.lower() == "softshrink":
-            return nn.Softshrink(lambd=0.5)
-        elif activation.lower() == "softsign":
-            return nn.Softsign()
         elif activation.lower() == "tanh":
             return nn.Tanh()
-        elif activation.lower() == "tanhshrink":
-            return nn.Tanhshrink()
-        elif activation.lower() == "threshold":
-            return nn.Threshold(0.1, 20)
-        elif activation.lower() == "glu":
-            return nn.GLU()
+        elif activation.lower() == "softmax":
+            return nn.Softmax(dim=-1)
+        elif activation.lower() == "prelu":
+            return nn.PReLU(hidden_units, init=0.1)
         elif activation.lower() == "dice":
             from fuxictr.pytorch.layers.activations import Dice
             return Dice(hidden_units)
-        elif activation.lower() == "lelelu":
-            from fuxictr.pytorch.layers.activations import LeLeLU
-            return LeLeLU()
-        elif activation.lower() == "lift":
-            from fuxictr.pytorch.layers.activations import Lift
-            return Lift(hidden_units)
-        elif activation.lower() == "simlift":
-            from fuxictr.pytorch.layers.activations import SimLift
-            return SimLift(hidden_units)
-        elif activation.lower() == "vodice":
-            from fuxictr.pytorch.layers.activations import VODice
-            return VODice(hidden_units)
-        elif activation.lower() == "xtan":
-            from fuxictr.pytorch.layers.activations import XTan
-            return XTan(hidden_units)
-        elif activation.lower() == "xxtan":
-            from fuxictr.pytorch.layers.activations import XXTan
-            return XXTan(hidden_units)
-        elif activation.lower() == "bxtan":
-            from fuxictr.pytorch.layers.activations import BXTan
-            return BXTan(hidden_units)
-        elif activation.lower() == "bxxtan":
-            from fuxictr.pytorch.layers.activations import BXXTan
-            return BXXTan(hidden_units)
-        elif activation.lower() == "simxtan":
-            from fuxictr.pytorch.layers.activations import SimXTan
-            return SimXTan()
-        elif activation.lower() == "pxtan":
-            from fuxictr.pytorch.layers.activations import PXTan
-            return PXTan(hidden_units)
-        # elif activation.lower() == "simpxtan":
-        #     from fuxictr.pytorch.layers.activations import SimPXTan
-        #     return SimPXTan(hidden_units)
-        elif activation.lower() == "tanhs":
-            from fuxictr.pytorch.layers.activations import TanHS
-            return TanHS()
-        # elif activation.lower() == "pmish_correct":
-        #     from fuxictr.pytorch.layers.activations import PMish
-        #     return PMish(hidden_units, param_type="correct")
-        # elif activation.lower() == "pmish_stabilize":
-        #     from fuxictr.pytorch.layers.activations import PMish
-        #     return PMish(hidden_units, param_type="stabilize")
-        # elif activation.lower() == "pmish_accelerate":
-        #     from fuxictr.pytorch.layers.activations import PMish
-        #     return PMish(hidden_units, param_type="accelerate")
-        elif activation.lower() == "bmish":
-            from fuxictr.pytorch.layers.activations import BMish
-            return BMish(hidden_units)
         elif activation.lower() == "pbmish_avazu":
             from fuxictr.pytorch.layers.activations import PBMish_Avazu
             return PBMish_Avazu(hidden_units)
         elif activation.lower() == "pbmish_criteo":
             from fuxictr.pytorch.layers.activations import PBMish_Criteo
             return PBMish_Criteo(hidden_units)
-        elif activation.lower() == "pbmish_correct":
-            from fuxictr.pytorch.layers.activations import PBMish
-            return PBMish(hidden_units, "correct")
-        elif activation.lower() == "pbmish_stabilize":
-            from fuxictr.pytorch.layers.activations import PBMish
-            return PBMish(hidden_units, "stabilize")
-        elif activation.lower() == "pbmish_accelerate":
-            from fuxictr.pytorch.layers.activations import PBMish
-            return PBMish(hidden_units, "accelerate")
-        elif activation.lower() == "vomish":
-            from fuxictr.pytorch.layers.activations import VOMish
-            return VOMish(hidden_units)
-        elif activation.lower() == "milu":
-            from fuxictr.pytorch.layers.activations import MiLU
-            return MiLU()
-        # elif activation.lower() == "idlu":
-        #     from fuxictr.pytorch.layers.activations import IdLU
-        #     return IdLU(negative_slope=negative_slope, positive_slope=positive_slope)
-        # TODO 添加新的激活函数
         else:
             return getattr(nn, activation)()
     elif isinstance(activation, list):
