@@ -49,10 +49,6 @@ def get_optimizer(optimizer, params, lr, kwargs=None):
             optimizer = "Adam"
         elif optimizer.lower() == "adamw":
             optimizer = "AdamW"
-        # 自定义优化器
-        if optimizer.upper() == "GRDA":
-            from fuxictr.pytorch.layers.GRDA import GRDA
-            optimizer = GRDA(params, c=kwargs["GRDA_c"], mu=kwargs["GRDA_mu"], lr=lr)
         else:
             try:
                 optimizer = getattr(torch.optim, optimizer)(params, lr=lr)
