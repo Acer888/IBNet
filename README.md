@@ -8,14 +8,9 @@
 python==3.8.18  
 torch==1.12.0+cu116  
 fuxictr  
-PyYAML==6.0.1  
-pandas==2.0.3  
-scikit-learn==1.3.1  
-numpy==1.24.4  
-h5py==3.10.0  
-tqdm==4.66.1  
-
-
+```python
+pip install -r requirements.txt
+```
 
 ## Experiment results
 
