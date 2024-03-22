@@ -9,7 +9,7 @@ python==3.8.18
 torch==1.12.0+cu116  
 fuxictr  
 
-# Others
+### Others
 ```python
 pip install -r requirements.txt
 ```
