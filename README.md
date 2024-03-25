@@ -1,7 +1,6 @@
 # IBNet: Optimizing Feature Interaction via Information Bottleneck for CTR Prediction
 ## Model Overview
-![overview](https://github.com/Acer888/IBNet/assets/45092309/6069f05a-b227-4dee-804a-187cea4e501e)
-
+![image](https://github.com/Acer888/IBNet/assets/45092309/0222d5d3-b685-4bb8-a1ba-3be433b0161d)
 
 
 ## Requirements
@@ -16,7 +15,6 @@ pip install -r requirements.txt
 
 ## Experiment results
 ![image](https://github.com/Acer888/IBNet/assets/45092309/11020051-b902-477e-85c2-52a4cbe5e13c)
-
 
 
 ## Datasets
