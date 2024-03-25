@@ -15,8 +15,8 @@ pip install -r requirements.txt
 ```
 
 ## Experiment results
+![image](https://github.com/Acer888/IBNet/assets/45092309/11020051-b902-477e-85c2-52a4cbe5e13c)
 
-![image](https://github.com/Acer888/IBNet/assets/45092309/0b654760-8ad5-48ed-974c-2a9fc9a9de20)
 
 
 ## Datasets
