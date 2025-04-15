@@ -1,5 +1,257 @@
+Base:
+    model_root: './checkpoints/'
+    num_workers: 3
+    verbose: 1
+    early_stop_patience: 2
+    pickle_feature_encoder: True
+    save_best_only: True
+    eval_steps: null
+    debug_mode: False
+    group_id: null
+    use_features: null
+    feature_specs: null
+    feature_config: null
+
+IBNet_Residual_Avazu:
+    model: IBNet_Residual
+    dataset_id: Avazu_x4_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    ssl_mode: True
+    cl_weight: 0.01 #best
+    cl_temp: 0.5 #best
+    gate_temp: 0.1 #best
+    embedding_regularizer: 0 #best
+    net_regularizer: 0 #best
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [512, 512, 512]
+    dnn_activations: pbmish_avazu
+    num_cross_layers: 3 #best
+    net_dropout: 0 #best
+    batch_norm: False #best
+    epochs: 100
+    shuffle: True
+    seed: 2023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
 IBNet_Avazu:
     model: IBNet
+    dataset_id: Avazu_x4_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    ssl_mode: True
+    cl_weight: 0.01 #best
+    cl_temp: 0.5 #best
+    gate_temp: 0.1 #best
+    embedding_regularizer: 0 #best
+    net_regularizer: 0 #best
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [512, 512, 512]
+    dnn_activations: pbmish_avazu
+    num_cross_layers: 3 #best
+    net_dropout: 0 #best
+    batch_norm: False #best
+    epochs: 100
+    shuffle: True
+    seed: 2023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+IBNet_Criteo:
+    model: IBNet
+    dataset_id: Criteo_x4_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3  #best, 1.0e-3
+    ssl_mode: True #best
+    cl_temp: 0.5 #best
+    cl_weight: 0.01 #best
+    gate_temp: 0.3 #best
+    embedding_regularizer: 1.e-4 #best, 1.e-5
+    net_regularizer: 0 #best
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [1024, 1024, 1024]
+    dnn_activations: pbmish_criteo
+    num_cross_layers: 3
+    net_dropout: 0.2 #best
+    batch_norm: True #best
+    epochs: 100
+    shuffle: True
+    seed: 2023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+IBNet_Movielens:
+    model: IBNet
+    dataset_id: Movielenslatest_x1_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3 #best
+    ssl_mode: True #best: True
+    cl_temp: 1.0  #best
+    cl_weight: 0.01  #best
+    gate_temp: 1.0  #best
+    embedding_regularizer: 0.01 #best
+    net_regularizer: 0 #best
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [400, 400, 400]
+    dnn_activations: relu #best: pbmish_avazu
+    num_cross_layers: 3
+    net_dropout: 0.1  #best
+    batch_norm: True #best
+    epochs: 100
+    shuffle: True
+    seed: 42
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+IBNet_Frappe:
+    model: IBNet
+    dataset_id: Frappe_x1_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    ssl_mode: True # best: True
+    cl_temp: 0.5 # best
+    cl_weight: 0.005 # best
+    gate_temp: 0.1 # best
+    embedding_regularizer: 0.1 # best
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [400, 400, 400]
+    dnn_activations: pbmish_avazu # best: pbmish_avazu
+    num_cross_layers: 3
+    net_dropout: 0.3  #best
+    batch_norm: True #best
+    epochs: 100
+    shuffle: True
+    seed: 2023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+
+
+IBNet_NOSSL_Avazu:
+    model: IBNet_NOSSL
+    dataset_id: Avazu_x4_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    gate_temp: 0.1 #best
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [512, 512, 512]
+    dnn_activations: pbmish_avazu
+    num_cross_layers: 3 #best
+    net_dropout: 0
+    batch_norm: False
+    epochs: 100
+    shuffle: True
+    seed: 2023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+IBNet_NOSSL_Criteo:
+    model: IBNet_NOSSL
+    dataset_id: Criteo_x4_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 2.0e-3  #best, 1.0e-3
+    gate_temp: 0.3 #best
+    embedding_regularizer: 1.e-4 #best, 1.e-5
+    net_regularizer: 0 #best
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [1024, 1024, 1024]
+    dnn_activations: pbmish_criteo
+    num_cross_layers: 3
+    net_dropout: 0.2 #best
+    batch_norm: True #best
+    epochs: 100
+    shuffle: True
+    seed: 2023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+IBNet_NOSSL_Movielens:
+    model: IBNet_NOSSL
+    dataset_id: Movielenslatest_x1_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3 #best
+    gate_temp: 1.0  #best
+    embedding_regularizer: 0.01 #best
+    net_regularizer: 0 #best
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [400, 400, 400]
+    dnn_activations: pbmish_avazu
+    num_cross_layers: 3
+    net_dropout: 0.1  #best
+    batch_norm: True #best
+    epochs: 100
+    shuffle: True
+    seed: 2023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+IBNet_NOSSL_Frappe:
+    model: IBNet_NOSSL
+    dataset_id: Frappe_x1_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    ssl_mode: True
+    cl_temp: 0.5 # best
+    cl_weight: 0.005 # best
+    gate_temp: 0.1 # best
+    embedding_regularizer: 0.1 # best
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [400, 400, 400]
+    dnn_activations: pbmish_avazu
+    num_cross_layers: 3
+    net_dropout: 0.3  #best
+    batch_norm: True #best
+    epochs: 100
+    shuffle: True
+    seed: 2023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+
+
+IBNetv2_Avazu:
+    model: IBNetv2
     dataset_id: Avazu_x4_h5
     loss: 'binary_crossentropy'
     metrics: ['logloss', 'AUC']
@@ -25,19 +277,101 @@ IBNet_Avazu:
     monitor: {'AUC': 1, 'logloss': -1}
     monitor_mode: 'max'
 
-IBNet_Criteo:
-    model: IBNet
+IBNetv2_Criteo:
+    model: IBNetv2
     dataset_id: Criteo_x4_h5
     loss: 'binary_crossentropy'
     metrics: ['logloss', 'AUC']
     task: binary_classification
     optimizer: adam
-    learning_rate: 5.e-4
+    learning_rate: 1.0e-3
     ssl_mode: True
-    cl_temp: 0.5 #best
-    cl_weight: 0.01 #best
-    gate_temp: 0.3 #best
-    embedding_regularizer: 1.e-4
+    cl_temp: 0.5
+    cl_weight: 0.01
+    gate_temp: 0.3
+    embedding_regularizer: 1.e-5
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [1024, 1024, 1024]
+    dnn_activations: relu
+    num_cross_layers: 3
+    net_dropout: 0.2
+    batch_norm: True
+    epochs: 100
+    shuffle: True
+    seed: 2023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+IBNetv2_Movielens:
+    model: IBNetv2
+    dataset_id: Movielenslatest_x1_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3 #best
+    ssl_mode: True #best
+    cl_temp: 1.0  #best
+    cl_weight: 0.01  #best
+    gate_temp: 1.0  #best
+    embedding_regularizer: 0.01 #best
+    net_regularizer: 0 #best
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [400, 400, 400]
+    dnn_activations: pbmish_avazu
+    num_cross_layers: 3
+    net_dropout: 0.1  #best
+    batch_norm: True #best
+    epochs: 100
+    shuffle: True
+    seed: 2023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+
+IBNetv3_Avazu:
+    model: IBNetv3
+    dataset_id: Avazu_x4_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    ssl_mode: True
+    cl_weight: 0.01
+    cl_temp: 0.5
+    gate_temp: 0.1
+    embedding_regularizer: 0
+    net_regularizer: 0
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [512, 512, 512]
+    dnn_activations: relu
+    num_cross_layers: 3
+    net_dropout: 0
+    batch_norm: False
+    epochs: 100
+    shuffle: True
+    seed: 2023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+IBNetv3_Criteo:
+    model: IBNetv3
+    dataset_id: Criteo_x4_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3
+    ssl_mode: True
+    cl_temp: 0.5
+    cl_weight: 0.01
+    gate_temp: 0.3
+    embedding_regularizer: 1.e-5
     net_regularizer: 0
     batch_size: 10000
     embedding_dim: 20
@@ -52,27 +386,54 @@ IBNet_Criteo:
     monitor: {'AUC': 1, 'logloss': -1}
     monitor_mode: 'max'
 
-IBNet_Movielens:
-    model: IBNet
+IBNetv3_Movielens:
+    model: IBNetv3
     dataset_id: Movielenslatest_x1_h5
     loss: 'binary_crossentropy'
     metrics: ['logloss', 'AUC']
     task: binary_classification
     optimizer: adam
-    learning_rate: 1.0e-3
-    ssl_mode: True
+    learning_rate: 1.0e-3 #best
+    ssl_mode: True #best
     cl_temp: 1.0  #best
     cl_weight: 0.01  #best
     gate_temp: 1.0  #best
-    embedding_regularizer: 0.01
-    net_regularizer: 0
+    embedding_regularizer: 0.01 #best
+    net_regularizer: 0 #best
     batch_size: 10000
     embedding_dim: 20
     dnn_hidden_units: [400, 400, 400]
-    dnn_activations: pbmish_avazu
+    dnn_activations: relu
     num_cross_layers: 3
     net_dropout: 0.1  #best
-    batch_norm: True
+    batch_norm: True #best
+    epochs: 100
+    shuffle: True
+    seed: 2023
+    monitor: {'AUC': 1, 'logloss': -1}
+    monitor_mode: 'max'
+
+IBNetv3_Frappe:
+    model: IBNetv3
+    dataset_id: Frappe_x1_h5
+    loss: 'binary_crossentropy'
+    metrics: ['logloss', 'AUC']
+    task: binary_classification
+    optimizer: adam
+    learning_rate: 1.0e-3 #best
+    ssl_mode: True #best
+    cl_temp: 1.0  #best
+    cl_weight: 0.01  #best
+    gate_temp: 1.0  #best
+    embedding_regularizer: 0.01 #best
+    net_regularizer: 0 #best
+    batch_size: 10000
+    embedding_dim: 20
+    dnn_hidden_units: [400, 400, 400]
+    dnn_activations: relu
+    num_cross_layers: 3
+    net_dropout: 0.1  #best
+    batch_norm: True #best
     epochs: 100
     shuffle: True
     seed: 2023

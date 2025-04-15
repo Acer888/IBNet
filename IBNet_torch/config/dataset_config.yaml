@@ -1,10 +1,32 @@
-### Tiny data for tests only
-tiny_h5:
+Frappe_x1:
+    data_format: csv
     data_root: ../../../data/
+    feature_cols:
+    -   active: true
+        dtype: float
+        name: [user, item, daytime, weekday, isweekend, homework, cost, weather, country,
+            city]
+        type: categorical
+    label_col: {dtype: float, name: label}
+    min_categr_count: 2
+    test_data: ../../../data/Frappe_x1_h5/test.csv
+    train_data: ../../../data/Frappe_x1_h5/train.csv
+    valid_data: ../../../data/Frappe_x1_h5/valid.csv
+
+Frappe_x1_h5:
     data_format: h5
-    train_data: ../../../data/tiny_h5/train.h5
-    valid_data: ../../../data/tiny_h5/valid.h5
-    test_data: ../../../data/tiny_h5/test.h5
+    data_root: ../../../data/
+    feature_cols:
+    -   active: true
+        dtype: float
+        name: [user, item, daytime, weekday, isweekend, homework, cost, weather, country,
+            city]
+        type: categorical
+    label_col: {dtype: float, name: label}
+    min_categr_count: 2
+    test_data: ../../../data/Frappe_x1_h5/test.h5
+    train_data: ../../../data/Frappe_x1_h5/train.h5
+    valid_data: ../../../data/Frappe_x1_h5/valid.h5
 
 Avazu_x4:
     data_format: csv
